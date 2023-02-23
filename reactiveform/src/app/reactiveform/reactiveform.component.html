@@ -1,51 +1,60 @@
-<div class="container mx-aut0" style="width:600px ">
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h1 class="text-center">Angular 14 Reactive Forms Validation</h1>
+      <form [formGroup]="form" (ngSubmit)="submit()">
 
-  <h1 class="text-center">Angular 14 Reactive Forms Validation</h1>
-  <form [formGroup]="form" (ngSubmit)="submit()">
-
-          <div class="form-group">
-              <label class="form-label" for="name">Name</label>
-              <input
-                  formControlName="name"
-                  id="name"
-                  type="text"
-                  class="form-control p-2 bg-light border">
-                  <div *ngIf="f['name'].touched && f['name'].invalid" class="alert alert-danger">
-                  <div *ngIf="f['name'].errors && f['name'].errors['required']">Name is required.</div>
+              <div class="form-group">
+                  <label class="form-label" for="name">Name</label>
+                  <input
+                      formControlName="name"
+                      id="name"
+                      type="text"
+                      class="form-control p-2 bg-light border">
+                      <div *ngIf="f['name'].touched && f['name'].invalid" class="alert alert-danger">
+                      <div *ngIf="f['name'].errors && f['name'].errors['required']">Name is required.</div>
 
 
-                  <div *ngIf="f['name'].errors && f['name'].errors['minlength']">Name should be 3 character.</div>
+                      <div *ngIf="f['name'].errors && f['name'].errors['minlength']">Name should be 3 character.</div>
+                  </div>
               </div>
-          </div>
 
-          <div class="form-group">
-              <label for="email">Email</label>
-              <input
-                  formControlName="email"
-                  id="email"
-                  type="text"
-                  class="form-control p-2 bg-light border">
-              <div *ngIf="f['email'].touched && f['email'].invalid" class="alert alert-danger">
-                  <div *ngIf="f['email'].errors && f['email'].errors['required']">Email is required.</div>
-                  <div *ngIf="f['email'].errors && f['email'].errors['email']">Please, enter valid email address.</div>
+              <div class="form-group">
+                  <label for="email">Email</label>
+                  <input
+                      formControlName="email"
+                      id="email"
+                      type="text"
+                      class="form-control p-2 bg-light border">
+                  <div *ngIf="f['email'].touched && f['email'].invalid" class="alert alert-danger">
+                      <div *ngIf="f['email'].errors && f['email'].errors['required']">Email is required.</div>
+                      <div *ngIf="f['email'].errors && f['email'].errors['email']">Please, enter valid email address.</div>
+                  </div>
               </div>
-          </div>
 
-          <div class="form-group">
-              <label for="body">Message</label>
-              <textarea
-                  formControlName="body"
-                  id="body"
-                  type="text"
-                  class="form-control p-2 bg-light border">
-              </textarea>
-              <div *ngIf="f['body'].touched && f['body'].invalid" class="alert alert-danger">
-                  <div *ngIf="f['body'].errors && f['body'].errors['required']">Message is required.</div>
+              <div class="form-group">
+                  <label for="body">Message</label>
+                  <textarea
+                      formControlName="body"
+                      id="body"
+                      type="text"
+                      class="form-control p-2 bg-light border">
+                  </textarea>
+                  <div *ngIf="f['body'].touched && f['body'].invalid" class="alert alert-danger">
+                      <div *ngIf="f['body'].errors && f['body'].errors['required']">Message is required.</div>
+                  </div>
               </div>
-          </div>
 
-          <button class="btn btn-primary mt-3" [disabled]="form.invalid" type="submit">Submit</button>
-  </form>
+              <button class="btn btn-primary mt-3" [disabled]="form.invalid" type="submit">Submit</button>
+      </form>
+    </div>
+    <div class="col-md-6">
+      <app-datepicker></app-datepicker>
+    </div>
+  </div>
+
+
+
 </div>
 
 
